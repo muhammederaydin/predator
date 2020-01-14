@@ -43,7 +43,7 @@ class Tracker(object):
 
     def run(self, data):
         self.data = data # consumed message from kafka
-        self.user = self.data.get("ddkey")
+        self.user = self.data.get("user_id")
         self.path = self.data.get("path_")
         self.url = self.data.get("url")
         # First Check Users Path, Update If It is Needed
@@ -301,7 +301,7 @@ class Tracker(object):
 
                     if __flow == _user_p:
                         _dict = dict()
-                        _dict["ddkey"] = self.user
+                        _dict["user_id"] = self.user
                         _dict["users_path"] = _user_p
                         _dict["flow"] = _flow
                         self.logger.info("Tracker Complete")
@@ -344,7 +344,7 @@ class Tracker(object):
                             self.logger.error(e)
                     if __flow == _user_p:
                         _dict = dict()
-                        _dict["ddkey"] = self.user
+                        _dict["user_id"] = self.user
                         _dict["users_path"] = _user_p
                         _dict["flow"] = _flow
                         self.logger.info("UTM User Tracker Complete")
@@ -353,7 +353,7 @@ class Tracker(object):
                 self.logger.error("UTM User Tracker Exception : %s" % str(e))
                 raise e
 
-    def check_action(self, ddkey, action):
+    def check_action(self, user_id, action):
         """
 
         Check Action Execution Time. If Already Executed Then Return False
@@ -361,7 +361,7 @@ class Tracker(object):
         
         """
         try:
-            _key = str(ddkey) + "_" + str(action)
+            _key = str(user_id) + "_" + str(action)
             if self.redis.check_if_exist(_key):
                 self.logger.info("Action Has Already Executed")
                 return False
