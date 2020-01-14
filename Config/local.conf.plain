@@ -1,0 +1,29 @@
+[app]
+host = 127.0.0.1
+port = 7072
+log_file = app.log
+log_app_name = predator
+
+[kafka]
+bootstrap_servers = 127.0.0.1:9092
+input_topic = predator
+result_topic = predator_result
+error_topic = predator_error
+consumer_group_id = predator_01
+producer_group_id = predator_01
+# if you want real time tracking you should set auto_offset_reset latest
+auto_offset_reset = latest
+
+[mongodb]
+db_address_uri = mongodb://127.0.0.1:27017
+db_address = 127.0.0.1
+db_port = 27017
+db_user = predator
+db_pwd = <pwd>
+db_name = <db_name>
+collection = <collection_name>
+
+[redis]
+host = 127.0.0.1
+port = 6379
+db = 1
