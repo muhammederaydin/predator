@@ -49,13 +49,13 @@ Creating Paths:
 
 Add to Redis Example:
   With UTM
-> RPUSH utm_tracker_mydummy_paths / \n
-> RPUSH utm_tracker_mydummy_paths /blog \n
-> RPUSH utm_tracker_mydummy_paths /about*facebook__sms__email \n
+  RPUSH utm_tracker_mydummy_paths / 
+  RPUSH utm_tracker_mydummy_paths /blog 
+  RPUSH utm_tracker_mydummy_paths /about*facebook__sms__email 
 
   Without UTM
-> RPUSH tracker_mydummy_paths / \n
-> RPUSH tracker_mydummy_paths /blog \n
-> RPUSH tracker_mydummy_paths /about__mail \n
+  RPUSH tracker_mydummy_paths / 
+  RPUSH tracker_mydummy_paths /blog 
+  RPUSH tracker_mydummy_paths /about__mail 
 
 There will be add a module for action creation in next version...
