@@ -219,7 +219,7 @@ class Tracker(object):
             __flow = []
             for i in range(p_len):
                 if "*" in str(flow[i]):
-                    _splited_flow = _flow[i].split("*")
+                    _splited_flow = flow[i].split("*")
                     __flow.append(_splited_flow[0])
                     if user_paths[i] == _splited_flow[0]:
                         action = _splited_flow[1] if len(_splited_flow) >= 2 \
@@ -230,8 +230,8 @@ class Tracker(object):
                         self.logger.info("Cannot Find Match With Flow \
                                          and User Movement. Passed")
                 else:
-                    __flow.append(_flow[i])
-                    if _user_p[i] != _flow[i]:
+                    __flow.append(flow[i])
+                    if user_paths[i] != flow[i]:
                         continue
                     self.logger.info("No Action Found. Continue.")
         except Exception as e:
@@ -262,8 +262,8 @@ class Tracker(object):
                             self.logger.info("Cannot Find Match With Flow and \
                                              User Movement. Passed")
                     else:
-                        __flow.append(_flow[i])
-                        if _user_p[i] != _flow[i]:
+                        __flow.append(flow[i])
+                        if user_paths[i] != flow[i]:
                             continue
                         self.logger.info("No Action Found. Continue.")  
         except Exception as e:
